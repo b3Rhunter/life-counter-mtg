@@ -1,0 +1,299 @@
+@font-face {
+  font-family: 'font';
+  src: url('./assets/font.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.App {
+  min-height: 100svh;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #1f1e1e;
+  position: relative;
+}
+
+.display-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100svh;
+  height: 100vh;
+  cursor: pointer;
+}
+
+.decrease-btn,
+.increase-btn {
+  height: 100svh;
+  height: 100vh;
+  width: 33%;
+  max-width: 250px;
+  padding: 0;
+  margin: 0;
+  color: #1f1e1e;
+  text-shadow: 0 0 2px #ffffff3b;
+}
+
+.increase-btn {
+  font-size: clamp(4rem, 2vw + 4rem, 6rem);
+  padding-bottom: 10px;
+}
+
+.decrease-btn {
+  font-size: clamp(5rem, 2vw + 5rem, 6rem);
+  padding-bottom: 20px;
+}
+
+.life-total {
+  font-family: 'font', sans-serif;
+  font-size: clamp(5rem, 2vw + 5rem, 10rem);
+  text-align: center;
+  font-weight: 600;
+  position: relative;
+  color: transparent;
+  text-shadow: 0 0 3px rgb(255, 255, 255);
+  transition: 0.3s;
+  cursor: pointer;
+  margin: 0;
+}
+
+.life-total::before {
+  position: absolute;
+  text-shadow: 0 0 0 #1f1e1e;
+  content: attr(name);
+}
+
+.counter-label {
+  text-align: center;
+  font-family: 'font', sans-serif;
+  font-size: clamp(1rem, 2vw + 1rem, 3rem);
+  color: rgb(255, 255, 255);
+  transition: 0.3s;
+  margin-top: -60px;
+  margin-bottom: 40px;
+}
+
+/* Commander Damage Styles */
+.commander-damage .life-total {
+  text-shadow: 0 0 3px #ff0000;
+}
+
+.commander-damage .counter-label {
+  color: #ff0000;
+}
+
+/* Poison Counter Styles */
+.poison-counter .life-total {
+  text-shadow: 0 0 3px #00ff00;
+}
+
+.poison-counter .counter-label {
+  color: #00ff00;
+}
+
+/* Charge Counter Styles */
+.charge-counter .life-total {
+  text-shadow: 0 0 3px #ffff00;
+}
+
+.charge-counter .counter-label {
+  color: #ffff00;
+}
+
+/* Energy Counter Styles */
+.energy-counter .life-total {
+  text-shadow: 0 0 3px #ff8800;
+}
+
+.energy-counter .counter-label {
+  color: #ff8800;
+}
+
+/* Experience Counter Styles */
+.experience-counter .life-total {
+  text-shadow: 0 0 3px #bc6fff;
+}
+
+.experience-counter .counter-label {
+  color: #bc6fff;
+}
+
+/* Blight Counter Styles */
+.blight-counter .life-total {
+  text-shadow: 0 0 3px #666666;
+}
+
+.blight-counter .counter-label {
+  color: #666666;
+}
+
+/* Custom Counter Styles */
+.custom-counter .life-total {
+  text-shadow: 0 0 3px #00ffff;
+}
+
+.custom-counter .counter-label {
+  color: #00ffff;
+}
+
+.settings-modal {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #1f1e1ee6;
+  backdrop-filter: blur(5px);
+  z-index: 9;
+}
+
+.life-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings-modal .life-input {
+  text-align: center;
+  font-size: clamp(3rem, 2vw + 3rem, 6rem);
+  width: 33%;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.233);
+  background-color: rgba(0, 0, 0, 0.566);
+  padding: 1em 0.25em;
+}
+
+.life-input:focus,
+.life-input:focus-visible {
+  outline: none;
+}
+
+.commander-cont {
+  display: flex;
+  gap: 10px;
+}
+
+.counter-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+}
+
+footer button {
+  font-size: clamp(3rem, 2vw + 3rem, 6rem);
+  background-color: #1f1e1e;
+  position: relative;
+  color: transparent;
+  text-shadow: 0 0 3px rgb(255, 255, 255);
+  transition: 0.3s;
+}
+
+footer button::before {
+  position: absolute;
+  text-shadow: 0 0 0 #1f1e1e;
+  content: attr(name);
+}
+
+footer button:hover {
+  border: none;
+  text-shadow: 0 0 6px rgb(255, 255, 255);
+}
+
+/* Settings Button Color Coordination */
+footer button.commander-damage {
+  text-shadow: 0 0 3px #ff0000;
+}
+
+footer button.commander-damage:hover {
+  text-shadow: 0 0 6px #ff0000;
+}
+
+footer button.poison-counter {
+  text-shadow: 0 0 3px #00ff00;
+}
+
+footer button.poison-counter:hover {
+  text-shadow: 0 0 6px #00ff00;
+}
+
+footer button.charge-counter {
+  text-shadow: 0 0 3px #ffff00;
+}
+
+footer button.charge-counter:hover {
+  text-shadow: 0 0 6px #ffff00;
+}
+
+footer button.energy-counter {
+  text-shadow: 0 0 3px #ff8800;
+}
+
+footer button.energy-counter:hover {
+  text-shadow: 0 0 6px #ff8800;
+}
+
+footer button.experience-counter {
+  text-shadow: 0 0 3px #bc6fff;
+}
+
+footer button.experience-counter:hover {
+  text-shadow: 0 0 6px #bc6fff;
+}
+
+footer button.blight-counter {
+  text-shadow: 0 0 3px #666666;
+}
+
+footer button.blight-counter:hover {
+  text-shadow: 0 0 6px #666666;
+}
+
+footer button.custom-counter {
+  text-shadow: 0 0 3px #00ffff;
+}
+
+footer button.custom-counter:hover {
+  text-shadow: 0 0 6px #00ffff;
+}
+
+.close-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  color: rgba(255, 255, 255, 0.61);
+  border: 1px solid rgba(255, 255, 255, 0.221);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'font', sans-serif;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  color: rgba(255, 255, 255, 0.853);
+  border: 1px solid rgba(255, 255, 255, 0);
+  box-shadow: 0 0 3px rgb(0, 255, 89);
+  width: 41px;
+  height: 41px;
+}
