@@ -127,7 +127,7 @@ function App() {
     });
   };
 
-  const presetCounters = ['Poison', 'Charge', 'Energy', 'Experience', 'Blight'];
+  const presetCounters = ['Poison', 'Charge', 'Energy', 'Experience', 'Radiation'];
 
   const getCurrentValue = () => {
     if (displayIndex === 0 && commanderMode) return commanderDamage;
@@ -149,7 +149,7 @@ function App() {
       if (counterName === 'Charge') return 'charge-counter';
       if (counterName === 'Energy') return 'energy-counter';
       if (counterName === 'Experience') return 'experience-counter';
-      if (counterName === 'Blight') return 'blight-counter';
+      if (counterName === 'Radiation') return 'rad-counter';
       return 'custom-counter';
     }
     return '';

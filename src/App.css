@@ -123,13 +123,13 @@
   color: #bc6fff;
 }
 
-/* Blight Counter Styles */
-.blight-counter .life-total {
-  text-shadow: 0 0 3px #666666;
+/* Rad Counter Styles */
+.rad-counter .life-total {
+  text-shadow: 0 0 3px #a7e304;
 }
 
-.blight-counter .counter-label {
-  color: #666666;
+.rad-counter .counter-label {
+  color: #a7e304;
 }
 
 /* Custom Counter Styles */
@@ -282,12 +282,12 @@ footer button.experience-counter:hover {
   text-shadow: 0 0 6px #bc6fff;
 }
 
-footer button.blight-counter {
-  text-shadow: 0 0 3px #666666;
+footer button.rad-counter {
+  text-shadow: 0 0 3px #a7e304;
 }
 
-footer button.blight-counter:hover {
-  text-shadow: 0 0 6px #666666;
+footer button.rad-counter:hover {
+  text-shadow: 0 0 6px #a7e304;
 }
 
 footer button.custom-counter {
