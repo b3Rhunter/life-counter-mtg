@@ -178,7 +178,14 @@
 
 .commander-cont {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
+}
+
+.commander-cont input {
+  width: 20px;
+  height: 20px;
 }
 
 .counter-cont {
@@ -186,6 +193,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+select {
+  color: white;
+  padding: 1em 0.75em;
+  border: none;
+  background-color: #1f1e1e;
+}
+
+select:focus {
+  outline: none;
+}
+
+.reset-btn {
+  border: 1px solid rgba(255, 255, 255, 0.223);
+  border-radius: 10px;
 }
 
 footer {
@@ -293,7 +316,6 @@ footer button.custom-counter:hover {
 .close-btn:hover {
   color: rgba(255, 255, 255, 0.853);
   border: 1px solid rgba(255, 255, 255, 0);
-  box-shadow: 0 0 3px rgb(0, 255, 89);
-  width: 41px;
-  height: 41px;
+  box-shadow: 0 0 3px rgb(255, 0, 0);
+  color: rgb(255, 0, 0);
 }
