@@ -9,12 +9,14 @@ function App() {
   const [commanderDamage, setCommanderDamage] = useState(0);
   const [counters, setCounters] = useState([]);
   const [displayIndex, setDisplayIndex] = useState(-1);
-  const [showCustomInput, setShowCustomInput] = useState(false); 
+  const [showCustomInput, setShowCustomInput] = useState(false);
+  const [selectedCounter, setSelectedCounter] = useState("");
 
   const handleLifeChange = (e) => setTempLife(e.target.value);
 
   const toggleSettings = () => {
     setSettings(!settings);
+    setTempLife(lifeTotal);
   };
 
   const resetApp = () => {
@@ -29,6 +31,9 @@ function App() {
     setCounters([]);
     setDisplayIndex(-1);
     setShowCustomInput(false);
+    setSettings(false);
+    setCommanderMode(false)
+    setLifeTotal(20)
   };
 
   const toggleCommanderMode = () => {
@@ -45,31 +50,25 @@ function App() {
     }
   };
 
-  const addCounter = (name) => {
-    if (name && name !== 'custom' && !counters.some(counter => counter.name === name)) {
-      setCounters(prevCounters => [...prevCounters, { name, value: 0, type: 'preset' }]);
-    }
-  };
 
-  const handleCounterSelect = (e) => {
-    const value = e.target.value;
-    if (value === 'custom') {
-      setShowCustomInput(true);
-    } else if (value) {
-      addCounter(value);
-      setShowCustomInput(false);
-    }
-    e.target.value = '';
-  };
 
-  const handleCustomCounterAdd = (e) => {
-    const customName = e.target.value.trim();
-    if (customName && !counters.some(counter => counter.name === customName)) {
-      setCounters(prevCounters => [...prevCounters, { name: customName, value: 0, type: 'custom' }]);
-      setShowCustomInput(false);
-      e.target.value = '';
-    }
-  };
+const handleCounterSelect = (e) => {
+  const value = e.target.value;
+  setSelectedCounter(value);
+  if (value === 'custom') {
+    setShowCustomInput(true);
+  } else {
+    setShowCustomInput(false);
+  }
+};
+
+const handleCustomCounterAdd = (e) => {
+  const customName = e.target.value.trim();
+  if (customName) {
+    setSelectedCounter(customName);
+    setShowCustomInput(false);
+  }
+};
 
   const adjustCounter = (amount) => {
     if (displayIndex === 0 && commanderMode) {
@@ -94,9 +93,9 @@ function App() {
       if (totalDisplays === 1) {
         return -1;
       }
-      
+
       let nextIndex;
-      
+
       if (prev === -1) {
         nextIndex = commanderMode ? 0 : 1;
       } else if (commanderMode && prev === 0) {
@@ -106,15 +105,15 @@ function App() {
       } else {
         nextIndex = -1;
       }
-      
-      console.log('Display Index Transition:', { 
-        prev, 
-        nextIndex, 
-        totalDisplays, 
-        countersLength: counters.length, 
-        commanderMode 
+
+      console.log('Display Index Transition:', {
+        prev,
+        nextIndex,
+        totalDisplays,
+        countersLength: counters.length,
+        commanderMode
       });
-      
+
       return nextIndex;
     });
   };
@@ -147,6 +146,27 @@ function App() {
     return '';
   };
 
+  const saveSettings = () => {
+    const newLife = parseInt(tempLife);
+    if (!isNaN(newLife) && newLife > 0) {
+      setLifeTotal(newLife);
+    }
+
+    if (selectedCounter && !counters.some(c => c.name === selectedCounter)) {
+      setCounters(prev => [...prev, { name: selectedCounter, value: 0, type: 'preset' }]);
+    }
+
+    setSelectedCounter("");
+    setShowCustomInput(false);
+    setSettings(false);
+  };
+
+  const closeSettings = () => {
+    setTempLife(lifeTotal.toString());
+    setShowCustomInput(false);
+    setSettings(false);
+  };
+
   return (
     <div className="App">
       <button className="decrease-btn" onClick={() => adjustCounter(-1)}>-</button>
@@ -165,24 +185,19 @@ function App() {
         <div className="settings-modal">
           <h2>SETTINGS</h2>
           <div className="life-cont">
-            <p>Starting Life:</p>
+            <p>Set Life:</p>
             <input className="life-input" onChange={handleLifeChange} value={tempLife} />
           </div>
-          <div className="commander-cont">
-            <p>Commander Mode:</p>
-            <input
-              type="checkbox"
-              checked={commanderMode}
-              onChange={toggleCommanderMode}
-            />
-          </div>
+
           <div className="counter-cont">
             <p>Add Counter:</p>
             <select
               onChange={handleCounterSelect}
-              defaultValue=""
+              value={selectedCounter} // controls the displayed text
             >
-              <option value="" disabled>Select a counter</option>
+              <option value="" disabled>
+                Select a counter
+              </option>
               {presetCounters.map((counter) => (
                 <option key={counter} value={counter}>
                   {counter}
@@ -192,6 +207,7 @@ function App() {
             </select>
             {showCustomInput && (
               <input
+                className='custom-counter-input'
                 type="text"
                 placeholder="Enter counter name"
                 onBlur={handleCustomCounterAdd}
@@ -204,8 +220,21 @@ function App() {
               />
             )}
           </div>
-          <button className="reset-btn" onClick={resetApp}>Reset</button>
-          <button className="close-btn" onClick={toggleSettings}>X</button>
+
+          <div className="commander-cont">
+            <p>Commander Mode:</p>
+            <input
+              type="checkbox"
+              checked={commanderMode}
+              onChange={toggleCommanderMode}
+            />
+          </div>
+
+          <div className='settings-btns-cont'>
+            <button className="reset-btn" onClick={resetApp}>Reset</button>
+            <button className="save-btn" onClick={saveSettings}>Save</button>
+          </div>
+          <button className="close-btn" onClick={closeSettings}>X</button>
         </div>
       )}
       <footer>

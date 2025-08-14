@@ -168,7 +168,7 @@
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.233);
   background-color: rgba(0, 0, 0, 0.566);
-  padding: 1em 0.25em;
+  padding: 0.5em 0.25em;
 }
 
 .life-input:focus,
@@ -193,6 +193,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.19);
+  border-radius: 1em;
+  padding: 1em;
 }
 
 select {
@@ -206,7 +209,26 @@ select:focus {
   outline: none;
 }
 
+.settings-btns-cont {
+  display: flex;
+  gap: 10px;
+}
+
+.custom-counter-input {
+  text-align: center;
+  border-radius: 50em;
+  padding: 0.5em 0.25em;
+  background-color: #1f1e1e;
+  outline: none;
+}
+
 .reset-btn {
+  border: 1px solid rgba(255, 255, 255, 0.223);
+  border-radius: 10px;
+  color: white;
+}
+
+.save-btn {
   border: 1px solid rgba(255, 255, 255, 0.223);
   border-radius: 10px;
   color: white;
