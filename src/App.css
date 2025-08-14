@@ -248,32 +248,24 @@ footer button {
   background-color: #1f1e1e;
   position: relative;
   color: transparent;
-  text-shadow: 0 0 3px rgb(255, 255, 255);
   transition: 0.3s;
 }
 
-footer button::before {
-  position: absolute;
-  text-shadow: 0 0 0 #1f1e1e;
-  content: attr(name);
-}
-
-footer button:hover {
-  border: none;
-  text-shadow: 0 0 6px rgb(255, 255, 255);
-}
-
 /* Settings Button Color Coordination */
+footer button {
+  color: white;
+}
+
 footer button.commander-damage {
-  text-shadow: 0 0 3px #ff0000;
+  color: #ff0000;
 }
 
 footer button.commander-damage:hover {
-  text-shadow: 0 0 6px #ff0000;
+  color: #ff0000;
 }
 
 footer button.poison-counter {
-  text-shadow: 0 0 3px #00ff00;
+  color: #00ff00;
 }
 
 footer button.poison-counter:hover {
@@ -281,7 +273,7 @@ footer button.poison-counter:hover {
 }
 
 footer button.charge-counter {
-  text-shadow: 0 0 3px #ffff00;
+  color: #ffff00;
 }
 
 footer button.charge-counter:hover {
@@ -289,7 +281,7 @@ footer button.charge-counter:hover {
 }
 
 footer button.energy-counter {
-  text-shadow: 0 0 3px #ff8800;
+  color: #ff8800;
 }
 
 footer button.energy-counter:hover {
@@ -297,7 +289,7 @@ footer button.energy-counter:hover {
 }
 
 footer button.experience-counter {
-  text-shadow: 0 0 3px #bc6fff;
+  color: #bc6fff;
 }
 
 footer button.experience-counter:hover {
@@ -305,7 +297,7 @@ footer button.experience-counter:hover {
 }
 
 footer button.rad-counter {
-  text-shadow: 0 0 3px #a7e304;
+  color: #a7e304;
 }
 
 footer button.rad-counter:hover {
@@ -313,7 +305,7 @@ footer button.rad-counter:hover {
 }
 
 footer button.custom-counter {
-  text-shadow: 0 0 3px #00ffff;
+  color: #00ffff;
 }
 
 footer button.custom-counter:hover {

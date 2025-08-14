@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import Gear from './Gear';
 
 function App() {
   const [settings, setSettings] = useState(false);
@@ -50,23 +51,23 @@ function App() {
     }
   };
 
-const handleCounterSelect = (e) => {
-  const value = e.target.value;
-  setSelectedCounter(value);
-  if (value === 'custom') {
-    setShowCustomInput(true);
-  } else {
-    setShowCustomInput(false);
-  }
-};
+  const handleCounterSelect = (e) => {
+    const value = e.target.value;
+    setSelectedCounter(value);
+    if (value === 'custom') {
+      setShowCustomInput(true);
+    } else {
+      setShowCustomInput(false);
+    }
+  };
 
-const handleCustomCounterAdd = (e) => {
-  const customName = e.target.value.trim();
-  if (customName) {
-    setSelectedCounter(customName);
-    setShowCustomInput(false);
-  }
-};
+  const handleCustomCounterAdd = (e) => {
+    const customName = e.target.value.trim();
+    if (customName) {
+      setSelectedCounter(customName);
+      setShowCustomInput(false);
+    }
+  };
 
   const adjustCounter = (amount) => {
     if (displayIndex === 0 && commanderMode) {
@@ -192,7 +193,7 @@ const handleCustomCounterAdd = (e) => {
             <p>Add Counter:</p>
             <select
               onChange={handleCounterSelect}
-              value={selectedCounter} 
+              value={selectedCounter}
             >
               <option value="" disabled>
                 Select a counter
@@ -237,7 +238,12 @@ const handleCustomCounterAdd = (e) => {
         </div>
       )}
       <footer>
-        <button name="⚙️" className={getCurrentClass()} onClick={toggleSettings}>⚙️</button>
+        <button
+          className={getCurrentClass()}
+          onClick={toggleSettings}
+        >
+          <Gear />
+        </button>
       </footer>
     </div>
   );
