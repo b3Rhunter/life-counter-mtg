@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import './App.css';
 
 function App() {
@@ -167,8 +167,24 @@ const handleCustomCounterAdd = (e) => {
     setSettings(false);
   };
 
+  const audioRef = useRef(null);
+
+  const startSilentAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.play().catch(err => {
+        console.error("Audio play failed:", err);
+      });
+    }
+  };
+
   return (
-    <div className="App">
+    <div className="App" onClick={startSilentAudio}>
+      <audio
+        ref={audioRef}
+        src="/Big Iron - Marty Robbins.mp3"
+        muted
+        loop
+      />
       <button className="decrease-btn" onClick={() => adjustCounter(-1)}>-</button>
       <div className={`display-container ${getCurrentClass()}`} onClick={toggleDisplay}>
         <div className="counter-label">{getCurrentLabel()}</div>
