@@ -222,7 +222,7 @@ footer {
 }
 
 footer button {
-  font-size: clamp(3rem, 2vw + 3rem, 6rem);
+  font-size: clamp(2rem, 2vw + 3rem, 3rem);
   background-color: #1f1e1e;
   position: relative;
   color: transparent;

@@ -59,7 +59,6 @@ function App() {
       addCounter(value);
       setShowCustomInput(false);
     }
-    // Reset the select to default
     e.target.value = '';
   };
 
@@ -91,10 +90,7 @@ function App() {
   const toggleDisplay = (e) => {
     e.stopPropagation();
     setDisplayIndex((prev) => {
-      // Calculate total displays: life + commander damage (if commander mode) + counters
       const totalDisplays = 1 + (commanderMode ? 1 : 0) + counters.length;
-      
-      // If no counters and not in commander mode, just stay on life total
       if (totalDisplays === 1) {
         return -1;
       }
@@ -102,16 +98,12 @@ function App() {
       let nextIndex;
       
       if (prev === -1) {
-        // From life total, go to commander damage if in commander mode, otherwise first counter
         nextIndex = commanderMode ? 0 : 1;
       } else if (commanderMode && prev === 0) {
-        // From commander damage, go to first counter or back to life total
         nextIndex = counters.length > 0 ? 1 : -1;
       } else if (prev >= 1 && prev < counters.length) {
-        // Cycling through counters
         nextIndex = prev + 1;
       } else {
-        // From last counter back to life total
         nextIndex = -1;
       }
       
