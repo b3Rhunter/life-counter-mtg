@@ -14,10 +14,10 @@ export default defineConfig({
     },
 
     manifest: {
-      name: 'life counter',
-      short_name: 'life counter',
-      description: 'life counter',
-      theme_color: '#ffffff',
+      name: 'Magic: The Counter',
+      short_name: 'MTC',
+      description: 'A companion app for magic the gathering',
+      theme_color: '#000000',
     },
 
     workbox: {
