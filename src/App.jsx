@@ -132,8 +132,7 @@ function App() {
   };
 
   const getCurrentClass = () => {
-    console.log(displayIndex)
-    if (displayIndex === -1) return 'life';
+    if (displayIndex === -1) return 'life-counter';
     if (displayIndex === 0 && commanderMode) return 'commander-damage';
     if (displayIndex > 0 && displayIndex <= counters.length) {
       const counterName = counters[displayIndex - 1].name;
