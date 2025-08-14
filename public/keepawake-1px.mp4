@@ -1,0 +1,2 @@
+ffmpeg -f lavfi -i color=c=black:s=16x16:d=2 -f lavfi -i anullsrc=channel_layout=mono:sample_rate=44100 \
+  -shortest -movflags +faststart -pix_fmt yuv420p public/keepawake-1px.mp4

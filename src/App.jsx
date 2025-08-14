@@ -50,8 +50,6 @@ function App() {
     }
   };
 
-
-
 const handleCounterSelect = (e) => {
   const value = e.target.value;
   setSelectedCounter(value);
@@ -167,7 +165,6 @@ const handleCustomCounterAdd = (e) => {
     setSettings(false);
   };
 
-
   return (
     <div className="App">
 
@@ -195,7 +192,7 @@ const handleCustomCounterAdd = (e) => {
             <p>Add Counter:</p>
             <select
               onChange={handleCounterSelect}
-              value={selectedCounter} // controls the displayed text
+              value={selectedCounter} 
             >
               <option value="" disabled>
                 Select a counter
