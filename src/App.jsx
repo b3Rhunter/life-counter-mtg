@@ -153,13 +153,20 @@ function App() {
     }
 
     if (selectedCounter && !counters.some(c => c.name === selectedCounter)) {
-      setCounters(prev => [...prev, { name: selectedCounter, value: 0, type: 'preset' }]);
+      setCounters(prev => {
+        const updated = [...prev, { name: selectedCounter, value: 0, type: 'preset' }];
+
+        // immediately show the counter that was added
+        setDisplayIndex(updated.length); // offset because index 0 is commander damage
+        return updated;
+      });
     }
 
     setSelectedCounter("");
     setShowCustomInput(false);
     setSettings(false);
   };
+
 
   const closeSettings = () => {
     setTempLife(lifeTotal.toString());
