@@ -64,7 +64,7 @@
 
 .life-total::before {
   position: absolute;
-  text-shadow: 0 0 0 #1f1e1e;
+  text-shadow: 0 0 0 #101010;
   content: attr(name);
 }
 
