@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Gear from './Gear';
+import Matrix from './Matrix'
 
 function App() {
   const [settings, setSettings] = useState(false);
@@ -176,7 +177,7 @@ function App() {
 
   return (
     <div className="App">
-
+      <Matrix/>
       <button className="decrease-btn" onClick={() => adjustCounter(-1)}>-</button>
       <div className={`display-container ${getCurrentClass()}`} onClick={toggleDisplay}>
         <div className="counter-label">{getCurrentLabel()}</div>

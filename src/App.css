@@ -245,7 +245,7 @@ footer {
 
 footer button {
   font-size: clamp(2rem, 2vw + 3rem, 3rem);
-  background-color: #101010;
+  background-color: #10101000;
   position: relative;
   color: transparent;
   transition: 0.3s;
@@ -339,4 +339,11 @@ footer button.custom-counter:hover {
   color: black;
   margin-top: 23px;
   font-weight: 700;
+}
+
+canvas {
+  position: fixed;
+  z-index: -1;
+  opacity: 0.07;
+  display:block;
 }
