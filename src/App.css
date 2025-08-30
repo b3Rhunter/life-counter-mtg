@@ -344,6 +344,46 @@ footer button.custom-counter:hover {
 canvas {
   position: fixed;
   z-index: -1;
-  opacity: 0.07;
-  display:block;
+  opacity: 0.2;
+  display: block;
+}
+
+@media screen and (min-width: 480px) {
+  .settings-modal {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .settings-modal h2 {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .settings-modal .life-cont {
+    width: 40%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .settings-modal .counter-cont {
+    width: 40%;
+    margin: 0;
+    padding: 1em;
+  }
+
+  .settings-modal .commander-cont {
+    width: 100%;
+  }
+
+  .settings-modal .settings-btns-cont {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 }
